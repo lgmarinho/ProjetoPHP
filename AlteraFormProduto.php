@@ -9,22 +9,18 @@ $produto = BuscarProduto($conexao, $id);
 
 $categorias = ListaCategoria($conexao);
 
-print_r($produto);
-
 ?>
-
-
-
 
 
 <h1> Formulário do Produto </h1>
 <form action="AlteraProduto.php" method="post">
     <table class="table">
         <tr>
+        <input type="hidden" name id="id" value="<?=$produto['id']?>"/> 
 		  <td>Produto:</td>
 		  <td><input class="form-control" type="text" name="produto" value="<?=$produto['nome']?>"></td>
         </tr>
-
+       
         <tr>
 		  <td>Valor:</td>  
 		<td><input class="form-control" type="number" name="valor" value="<?=$produto['preco']?>"></td>
@@ -32,29 +28,41 @@ print_r($produto);
 
         <tr>
 		  <td>Descrição:</td>  
-		<td><textarea class="form-control" name="descricao" value="<?=$produto['descricao']?>"></textarea></td>
+		<td><textarea class="form-control" name="descricao"><?=$produto['descricao']?></textarea></td>
         </tr>
         
         <tr>
+
+          <?php
+              $usado = $produto['usado'] ? "checked='checked'": "";
+          ?>
+
           <td>Usados:</td>
 
           <td>
-             <input type="checkbox" name="usado" value="true"> Usado</td>
+             <input type="checkbox" name="usado" <?= $usado?>  value="true"> Usado 
         <tr>
           <td>Categoria:</td>	
           <td>
-            <select name="categoria_id">
-          	    <?php foreach ($categorias as $categoria): ?>
-                     <option value="<?= $categoria['id']?>"><?=$categoria['nMCategoria']?></option>
+            <select name="categoria_id" class="form-control">
+          	    <?php 
+                  foreach ($categorias as $categoria): 
+                  $CatVerdadeira = $produto['categoria_id'] == $categoria['id'];
+                  $selecao = $CatVerdadeira ? "selected='selected'" : "";
+                
+                ?>
+                <option value="<?= $categoria['id']?>" <?=$selecao?> ><?=$categoria['nMCategoria']?></option>    
+
+
                 <?php endforeach ?>   	            
             </select> 
           </td>  
         </tr>
 
         <tr>
-		  <td><input class="btn btn-primary" type="submit" value="Cadastrar"></td>
+		  <td><input class="btn btn-primary" type="submit" value="Alterar"></td>
 		</tr> 
 	</table>	 	
-
+</form>
 	
 <?php include("rodape.php")?>

@@ -1,7 +1,6 @@
 <?php
 
 function ListaProdutos($conexao){
-
     $ArrayProduto = array();
     $resultado = mysqli_query($conexao, "select pr.*, c.nmCategoria as categoria_nome from produto as pr join categorias as c on pr.categoria_id = c.id");
 
@@ -20,19 +19,17 @@ function BuscarProduto($conexao, $id){
     $resultadoBusca = mysqli_query($conexao,$SqlBuscaQuery);
     return mysqli_fetch_assoc($resultadoBusca);
 
-
 }
 
 
 function AlterarProduto($conexao,$id,$nmProduto,$valor,$descricao,$categoria_id,$usado){
-    $SQlAlteraQuery = "Update produto set nmProduto='{$nome}', valor = {$preco}, descricao = '{$descricao}', categoria_id={$categoria_id}, usado = {$usado} where id = '{$id}' ";
-    return mysqli_query($conexao,$SQlAlteraQuery);
+    $SqlAlteraQuery = "Update produto set nome='{$nmProduto}', preco = {$valor}, descricao = '{$descricao}', categoria_id={$categoria_id}, usado = {$usado} where id = '{$id}'";
+    return mysqli_query($conexao,$SqlAlteraQuery);
 
 }
 
 
 function InserirProduto($conexao, $nmProduto, $valor,$descricao,$categoria_id,$usado){
-
     $SqlInsertQuery = "insert into produto (nome,preco, descricao,categoria_id,usado) values ('{$nmProduto}',{$valor},'{$descricao}','{$categoria_id}',{$usado})";
     $ResultadoInsert = mysqli_query($conexao,$SqlInsertQuery);
     return $ResultadoInsert;
@@ -41,7 +38,6 @@ function InserirProduto($conexao, $nmProduto, $valor,$descricao,$categoria_id,$u
 
 
 function RemoverProduto($conexao, $id){
-
     $SqlDeleteQuery = "delete from produto where id ={$id}";
     return mysqli_query($conexao, $SqlDeleteQuery);
                

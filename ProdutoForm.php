@@ -8,7 +8,7 @@ $categorias = ListaCategoria($conexao);
 ?>
 
 <h1> Formulário do Produto </h1>
-<form action="AlteraProduto.php" method="post">
+<form action="AddProduto.php" method="post">
     <table class="table">
         <tr>
 		  <td>Produto:</td>
@@ -46,6 +46,6 @@ $categorias = ListaCategoria($conexao);
 		  <td><input class="btn btn-primary" type="submit" value="Cadastrar"></td>
 		</tr> 
 	</table>	 	
-
+</form>
 	
 <?php include("rodape.php")?>
