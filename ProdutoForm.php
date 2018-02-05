@@ -11,8 +11,8 @@ $categorias = ListaCategoria($conexao);
 <form action="AddProduto.php" method="post">
     <table class="table">
         <tr>
-		  <td>Produto:</td>
-		  <td><input class="form-control" type="text" name="produto"></td>
+		    <td>Produto:</td>
+		    <td><input class="form-control" type="text" name="produto"></td>
         </tr>
 
         <tr>
@@ -21,8 +21,8 @@ $categorias = ListaCategoria($conexao);
         </tr>
 
         <tr>
-		  <td>Descrição:</td>  
-		<td><textarea class="form-control" name="descricao"></textarea></td>
+		    <td>Descrição:</td>  
+		    <td><textarea class="form-control" name="descricao"></textarea></td>
         </tr>
         
         <tr>

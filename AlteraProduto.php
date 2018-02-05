@@ -19,17 +19,16 @@ else {
 
 }
 
-$id;
 
-if(AlterarProduto($conexao, $id, $nmProduto, $valor, $descricao, $categoria_id, $usado)){ ?>
+if(AlterarProduto($conexao, $id, $nmProduto, $valor, $descricao, $categoria_id, $usado)) { ?>
 <p class="text-success"> Produto <?=  $nmProduto ?> Alterado. Por <?=   $valor; ?> Reais. </p>
 
 <?php } else {
 
     $msg = mysqli_error($conexao); 
-
+    
 ?>
-<p class="text-danger"> Produto <?=  $nmProduto ?> não adicionado.: <?= $msg ?> </p>
+<p class="text-danger"> Produto  <?=  $nmProduto ?> não adicionado.: <?= $msg ?> </p>
 <?php
 }
 ?>

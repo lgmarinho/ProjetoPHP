@@ -13,7 +13,6 @@ function ListaProdutos($conexao){
 
 }
 
-
 function BuscarProduto($conexao, $id){
     $SqlBuscaQuery = "Select * from produto where id = {$id}";
     $resultadoBusca = mysqli_query($conexao,$SqlBuscaQuery);
@@ -21,21 +20,18 @@ function BuscarProduto($conexao, $id){
 
 }
 
-
 function AlterarProduto($conexao,$id,$nmProduto,$valor,$descricao,$categoria_id,$usado){
-    $SqlAlteraQuery = "Update produto set nome='{$nmProduto}', preco = {$valor}, descricao = '{$descricao}', categoria_id={$categoria_id}, usado = {$usado} where id = '{$id}'";
+    $SqlAlteraQuery = "update produto set nome='{$nmProduto}', preco = {$valor}, descricao = '{$descricao}', categoria_id= {$categoria_id}, usado = {$usado} where id = '{$id}'";
     return mysqli_query($conexao,$SqlAlteraQuery);
 
 }
 
-
 function InserirProduto($conexao, $nmProduto, $valor,$descricao,$categoria_id,$usado){
-    $SqlInsertQuery = "insert into produto (nome,preco, descricao,categoria_id,usado) values ('{$nmProduto}',{$valor},'{$descricao}','{$categoria_id}',{$usado})";
+    $SqlInsertQuery = "insert into produto (nome preco, descricao, categoria_id, usado) values ('{$nmProduto}',{$valor},'{$descricao}','{$categoria_id}',{$usado})";
     $ResultadoInsert = mysqli_query($conexao,$SqlInsertQuery);
     return $ResultadoInsert;
     
 }
-
 
 function RemoverProduto($conexao, $id){
     $SqlDeleteQuery = "delete from produto where id ={$id}";
