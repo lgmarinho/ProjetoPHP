@@ -5,7 +5,7 @@
 <?php if(array_key_exists("removido",$_GET) && $_GET["removido"]==true){
 ?>
    <p class="alert-success"> Produto Removido </p>    
-
+ 
 <?php
 
     }
