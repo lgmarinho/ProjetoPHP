@@ -23,12 +23,20 @@ if(isset($_GET["login"]) && $_GET["login"]==false) { ?>
 } 
 ?>
 
+<?php 
+	if(isset($_GET["logout"]) && $_GET["logout"]==true) { ?>
+		<p class="alert-success"> Logout efetuado! </p>
+<?php 
+} 
+?>
+
 <h1>Seja Bem-Vindo!</h1>
 <?php 
 
 if (usuarioEstaLogado()){ ?>
 
-  <p class="alert-success"> Usuário logado como <?= $_COOKIE["usuario_logado"] ?> </p>
+  <p class="alert-success"> Usuário logado como <?= $_COOKIE["usuario_logado"] ?></p> 
+  <p><a href="logout.php"> Efetuar Logout</a></p>
 
 <?php 
 } else {
