@@ -1,9 +1,11 @@
 <?php include("cabecalho.php");
  include("conexao.php");
  include("bancoCategoria.php");
+ include("funcaoUsuario.php");
 
+ VerificaLogin();
 
-$categorias = ListaCategoria($conexao);
+ $categorias = ListaCategoria($conexao);
 
 ?>
 

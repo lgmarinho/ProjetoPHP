@@ -1,6 +1,11 @@
 <?php include("cabecalho.php");
       include("conexao.php");
-      include("dbProduto.php"); ?>
+      include("dbProduto.php"); 
+      include("funcaoUsuario.php")
+      
+      VerificaLogin();
+
+?>
 <?php
 
 $nmProduto = $_POST["produto"];

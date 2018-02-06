@@ -1,6 +1,11 @@
 <?php include("cabecalho.php");
       include("conexao.php");
-      include("dbProduto.php"); ?>
+      include("dbProduto.php");
+      include("funcaoUsuario.php");
+
+      VerificaLogin();
+
+?>      
 
 <?php if(array_key_exists("removido",$_GET) && $_GET["removido"]==true){
 ?>

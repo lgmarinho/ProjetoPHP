@@ -1,8 +1,8 @@
 <?php include("cabecalho.php");
-
+include ("funcaoUsuario.php");
 
 if(isset($_GET["login"]) && $_GET["login"]==true) { ?>
-	<p class="text-success"> Usuário logado. </p>
+	<p class="alert-success"> Usuário logado. </p>
 
 <?php 
 }
@@ -10,15 +10,34 @@ if(isset($_GET["login"]) && $_GET["login"]==true) { ?>
 <?php
 
 if(isset($_GET["login"]) && $_GET["login"]==false) { ?>
-	<p class="text-danger"> Usuário não encontrado. </p>
+	<p class="alert-danger"> Usuário não encontrado. </p>
 
 <?php 
-}
+} 
 ?>
 
-<h1>Seja Bem-Vindo!</h1>
+<?php 
+	if(isset($_GET["falhaDeSeguranca"]) && $_GET["falhaDeSeguranca"]==true) { ?>
+		<p class="alert-danger"> Sem autorização de acesso! </p>
+<?php 
+} 
+?>
 
-<form action='login.php' method="post">
+
+<h1>Seja Bem-Vindo!</h1>
+<?php 
+
+if (usuarioEstaLogado()){ ?>
+
+  <p class="alert-success"> Usuário logado como <?= $_COOKIE["usuario_logado"] ?> </p>
+
+<?php 
+} else {
+?>
+
+
+
+<form action="login.php" method="post">
 	<table class="table">
 		<tr>
 			<td> Login/Email: </td>
@@ -34,6 +53,9 @@ if(isset($_GET["login"]) && $_GET["login"]==false) { ?>
 	</table>
 </form>
 
+<?php
+}
+?>
 
 
 <?php include("rodape.php")?>
