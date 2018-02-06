@@ -23,7 +23,6 @@ if(isset($_GET["login"]) && $_GET["login"]==false) { ?>
 } 
 ?>
 
-
 <h1>Seja Bem-Vindo!</h1>
 <?php 
 
@@ -34,8 +33,6 @@ if (usuarioEstaLogado()){ ?>
 <?php 
 } else {
 ?>
-
-
 
 <form action="login.php" method="post">
 	<table class="table">
