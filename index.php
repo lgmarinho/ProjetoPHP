@@ -1,31 +1,28 @@
 <?php include("cabecalho.php");
 include ("funcaoUsuario.php");
 
-if(isset($_GET["login"]) && $_GET["login"]==true) { ?>
-	<p class="alert-success"> Usuário logado. </p>
+if(isset($_SESSION["success"])) { ?>
+	<p class="alert-success"> <?= ($_SESSION["success"])?> </p>
 
 <?php 
+
+    unset($_SESSION["success"]); /*unset desmarca o aviso setado pelo login*/ 
 }
 ?>
 <?php
 
-if(isset($_GET["login"]) && $_GET["login"]==false) { ?>
-	<p class="alert-danger"> Usuário não encontrado. </p>
+if(isset($_SESSION["danger"])) { ?>
+	<p class="alert-danger"> <?= ($_SESSION["danger"])?> </p>
 
 <?php 
-} 
+
+    unset($_SESSION["danger"]);
+}
 ?>
 
 <?php 
-	if(isset($_GET["falhaDeSeguranca"]) && $_GET["falhaDeSeguranca"]==true) { ?>
-		<p class="alert-danger"> Sem autorização de acesso! </p>
-<?php 
-} 
-?>
-
-<?php 
-	if(isset($_GET["logout"]) && $_GET["logout"]==true) { ?>
-		<p class="alert-success"> Logout efetuado! </p>
+	if(isset($_SESSION["success"])) { ?>
+		<p class="alert-success"> <?= $_SESSION["success"] ?> </p>
 <?php 
 } 
 ?>
@@ -34,8 +31,7 @@ if(isset($_GET["login"]) && $_GET["login"]==false) { ?>
 <?php 
 
 if (usuarioEstaLogado()){ ?>
-
-  <p class="alert-success"> Usuário logado como <?= $_COOKIE["usuario_logado"] ?></p> 
+  <p class="alert-success"> Usuário logado como <?= $_SESSION["usuario_logado"] ?></p> 
   <p><a href="logout.php"> Efetuar Logout</a></p>
 
 <?php 

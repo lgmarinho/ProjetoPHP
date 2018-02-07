@@ -1,10 +1,12 @@
 <?php include("cabecalho.php");
       include("conexao.php");
       include("dbProduto.php");
+      include("funcaoUsuario.php");
 
 $id = $_POST['id'];
 
 RemoverProduto($conexao,$id);
-header("Location: ProdutoLista.php?removido=true");
+$_SESSION["success"] = "Produto removido.";
+header("Location: ProdutoLista.php");
 die();
 ?>
