@@ -2,7 +2,7 @@
       include("conexao.php");
       include("dbProduto.php");
       include("funcaoUsuario.php");
-
+      
       VerificaLogin();
 
 ?>      
@@ -16,8 +16,6 @@
     }
 
 ?>
-
-
 
 
 <table class="table table-striped table-bordered">

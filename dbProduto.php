@@ -27,7 +27,7 @@ function AlterarProduto($conexao,$id,$nmProduto,$valor,$descricao,$categoria_id,
 }
 
 function InserirProduto($conexao, $nmProduto, $valor,$descricao,$categoria_id,$usado){
-    $SqlInsertQuery = "insert into produto (nome preco, descricao, categoria_id, usado) values ('{$nmProduto}',{$valor},'{$descricao}','{$categoria_id}',{$usado})";
+    $SqlInsertQuery = "insert into produto (nome, preco, descricao, categoria_id, usado) values ('{$nmProduto}',{$valor},'{$descricao}','{$categoria_id}',{$usado})";
     $ResultadoInsert = mysqli_query($conexao,$SqlInsertQuery);
     return $ResultadoInsert;
     

@@ -1,31 +1,11 @@
-<?php include("cabecalho.php");
+<?php 
+
+include("cabecalho.php");
 include ("funcaoUsuario.php");
 
-if(isset($_SESSION["success"])) { ?>
-	<p class="alert-success"> <?= ($_SESSION["success"])?> </p>
-
-<?php 
-
-    unset($_SESSION["success"]); /*unset desmarca o aviso setado pelo login*/ 
-}
-?>
-<?php
-
-if(isset($_SESSION["danger"])) { ?>
-	<p class="alert-danger"> <?= ($_SESSION["danger"])?> </p>
-
-<?php 
-
-    unset($_SESSION["danger"]);
-}
 ?>
 
-<?php 
-	if(isset($_SESSION["success"])) { ?>
-		<p class="alert-success"> <?= $_SESSION["success"] ?> </p>
-<?php 
-} 
-?>
+
 
 <h1>Seja Bem-Vindo!</h1>
 <?php 
