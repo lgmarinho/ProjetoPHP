@@ -1,7 +1,6 @@
-<?php include("cabecalho.php");
-      include("conexao.php");
-      include("dbProduto.php"); 
-      include("funcaoUsuario.php");
+<?php require_once("cabecalho.php");
+      require_once("dbProduto.php"); 
+      require_once("funcaoUsuario.php");
       
       VerificaLogin();
 
@@ -40,4 +39,4 @@ if (InserirProduto($conexao, $nmProduto, $valor, $descricao, $categoria_id, $usa
 
 ?>
 
-<?php include("rodape.php");?>
+<?php require_once("rodape.php");?>

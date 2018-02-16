@@ -1,8 +1,10 @@
 <?php
 
+include("conexao.php");
+
 function ListaProdutos($conexao){
     $ArrayProduto = array();
-    $resultado = mysqli_query($conexao, "select pr.*, c.nmCategoria as categoria_nome from produto as pr join categorias as c on pr.categoria_id = c.id");
+    $resultado = mysqli_query($conexao, "select pr.*, c.nmCategoria as categoria_nome from produto as pr join categorias as c on pr.categoria_id = c.id order by pr.id");
 
     while ($produto = mysqli_fetch_assoc($resultado)){
 
@@ -27,7 +29,10 @@ function AlterarProduto($conexao,$id,$nmProduto,$valor,$descricao,$categoria_id,
 }
 
 function InserirProduto($conexao, $nmProduto, $valor,$descricao,$categoria_id,$usado){
+    $nmProduto = mysqli_real_escape_string($conexao, $nmProduto);
+    $descricao = mysqli_real_escape_string($conexao, $descricao);    
     $SqlInsertQuery = "insert into produto (nome, preco, descricao, categoria_id, usado) values ('{$nmProduto}',{$valor},'{$descricao}','{$categoria_id}',{$usado})";
+      
     $ResultadoInsert = mysqli_query($conexao,$SqlInsertQuery);
     return $ResultadoInsert;
     

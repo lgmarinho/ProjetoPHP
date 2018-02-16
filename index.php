@@ -1,7 +1,7 @@
 <?php 
 
-include("cabecalho.php");
-include ("funcaoUsuario.php");
+require_once("cabecalho.php");
+require_once("funcaoUsuario.php");
 
 ?>
 
@@ -39,4 +39,4 @@ if (usuarioEstaLogado()){ ?>
 ?>
 
 
-<?php include("rodape.php")?>
+<?php require_once("rodape.php")?>

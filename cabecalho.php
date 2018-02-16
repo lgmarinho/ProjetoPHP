@@ -1,9 +1,5 @@
-<?php include("MsgAlerta.php");
+<?php require_once("MsgAlerta.php");
 error_reporting(E_ALL ^ E_NOTICE);
-
-
-
-
 
 ?>
 
@@ -33,7 +29,10 @@ error_reporting(E_ALL ^ E_NOTICE);
                      <a class="dropdown-item"  href="ProdutoForm.php">Adicionar Produto</a>
                      <a class="dropdown-item" href="ProdutoLista.php">Lista de Produtos</a>                     
                  </div>
-            </div>          
+            </div>
+            <li class="nav-item active">
+               <a class="nav-link" href="contato.php">Contato</a>
+            </li>          
         </ul>
 </nav>
 

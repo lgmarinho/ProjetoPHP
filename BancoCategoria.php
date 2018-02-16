@@ -1,4 +1,5 @@
 <?php
+   include("conexao.php");
 
    function ListaCategoria($conexao){
    $categorias = array();

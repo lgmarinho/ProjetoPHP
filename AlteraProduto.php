@@ -1,6 +1,5 @@
-<?php include("cabecalho.php");
-      include("conexao.php");
-      include("dbProduto.php"); 
+<?php require_once("cabecalho.php");
+      require_once("dbProduto.php"); 
 
 
 $id = $_POST['id'];
@@ -21,16 +20,16 @@ else {
 
 
 if(AlterarProduto($conexao, $id, $nmProduto, $valor, $descricao, $categoria_id, $usado)) { ?>
-<p class="text-success"> Produto <?=  $nmProduto ?> Alterado. Por <?=   $valor; ?> Reais. </p>
+<p class="alert-success"> Produto <?=  $nmProduto ?> Alterado. Por <?=   $valor; ?> Reais. </p>
 
 <?php } else {
 
     $msg = mysqli_error($conexao); 
     
 ?>
-<p class="text-danger"> Produto  <?=  $nmProduto ?> não adicionado.: <?= $msg ?> </p>
+<p class="alert-danger"> Produto  <?=  $nmProduto ?> não adicionado.: <?= $msg ?> </p>
 <?php
 }
 ?>
 
-<?php include("rodape.php");?>
+<?php require_once("rodape.php");?>
